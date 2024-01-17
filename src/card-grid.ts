@@ -9,9 +9,15 @@ export class CardGridElement extends LitElement {
     static styles = css`
         :host {
             display: flex;
-            gap: 1rem;
+            gap: .5em;
             flex-wrap: wrap;
-            font-size: 2rem;
+            font-size: 1.5em;
+        }
+
+        @media screen and (max-width: 600px) {
+            :host {
+                font-size: 1.25em;
+            }
         }
         `;
 
@@ -22,7 +28,7 @@ export class CardGridElement extends LitElement {
             elems.push(html`<div class="box less-padding font-mono">${text}</div>`);
         }
         return html`
-            <link rel="stylesheet" href="/styles.css" />
+            <link rel="stylesheet" href="/styles.css"/>
             ${elems}
         `;
     }

@@ -1,14 +1,15 @@
 import { LitElement, css, html } from "lit";
 import { customElement } from "lit/decorators.js";
 import "./text-changing-span.ts";
+import gsap from "gsap";
 
 @customElement('page-header')
 export class PageHeaderElement extends LitElement {
 
     static styles = css`
         :host {
-            min-height: 88dvh;
-            padding: 0 10dvw;
+            min-height: 100dvh;
+            padding: 0 var(--hor-padding);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -24,6 +25,39 @@ export class PageHeaderElement extends LitElement {
 
         .bigger {
             font-size: 1.7em;
+        }
+
+        .learn-more {
+            font-size: 1.5em;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 4rem;
+            left: 0;
+            right: 0;
+            text-decoration: none;
+        }
+
+        .learn-more:after {
+            content: "▼";
+            position: absolute;
+            top: 1.25em;
+            left: 0;
+            right: 0;
+        }
+
+        @media screen and (max-width: 600px) {
+            :host {
+                padding: 5rem var(--hor-padding);
+            }
+
+            .name {
+                font-size: 3em;
+            }
+
+            .learn-more {
+                display: none;
+            }
         }
         `;
 
@@ -45,6 +79,23 @@ export class PageHeaderElement extends LitElement {
                 <br>
                 <strong>Graduating with a Bachelor of Science in Management Information Systems on August 2, 2024.</strong>
             </p>
+
+            <a class="learn-more" id="learn-more" href="#technology-skills">Learn more about me</a>
         `;
+    }
+
+    firstUpdated() {
+        const tl = gsap.timeline({repeat: -1})
+        const element = this.shadowRoot?.getElementById('learn-more') as HTMLAnchorElement;
+        tl.to(element, {
+            y: -7,
+            duration: .25,
+            ease: "power2.out"
+        }, "+=2");
+        tl.to(element, {
+            y: 0,
+            duration: .5,
+            ease: "bounce.out"
+        });
     }
 }

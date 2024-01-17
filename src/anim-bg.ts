@@ -16,7 +16,12 @@ export class AnimBgElement extends LitElement {
     }
 
     canvas {
-        margin: 0
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
     `;
 
@@ -29,18 +34,19 @@ export class AnimBgElement extends LitElement {
     firstUpdated() {
         const element = this.shadowRoot?.getElementById("bg-parent");
         const p5 = new P5((p5: P5) => {
-            const particles: Particle[] = [];
-    
-            p5.setup = function() {
-                const c = p5.createCanvas(window.innerWidth, Math.max(1080, window.innerHeight));
+            const particles: Particle | MouseParticle[] = [];
+
+            p5.setup = function () {
+                const c = p5.createCanvas(Math.max(1920, window.innerWidth), Math.max(1080, window.innerHeight));
                 c.parent(element as HTMLElement);
                 c.style("visibility", "visible")
+                particles.push(new MouseParticle(p5));
                 for (let i = 0; i < 300; i++) {
                     particles.push(new Particle(p5));
                 }
             }
-    
-            p5.draw = function() {
+
+            p5.draw = function () {
                 p5.background("#2F3D34");
                 for (let i = 0; i < particles.length; i++) {
                     particles[i].moveParticle();
@@ -48,18 +54,18 @@ export class AnimBgElement extends LitElement {
                 }
             }
         });
-        p5.windowResized = function() {
-            p5.resizeCanvas(window.innerWidth, Math.max(1080, window.innerHeight));
+        p5.windowResized = function () {
+            p5.resizeCanvas(Math.max(1080, window.innerWidth), Math.max(1080, window.innerHeight));
         }
     }
 }
 
 class Particle {
-    private p5: P5;
-    private x: number;
-    private y: number;
-    private xSpeed: number;
-    private disLimit: number;
+    p5: P5;
+    x: number;
+    y: number;
+    xSpeed: number;
+    disLimit: number;
 
     constructor(p5: P5) {
         this.x = p5.random(0, p5.width);
@@ -88,5 +94,12 @@ class Particle {
                 this.p5.line(this.x, this.y, e.x, e.y);
             }
         });
+    }
+}
+
+class MouseParticle extends Particle {
+    moveParticle() {
+        this.x = this.p5.mouseX;
+        this.y = this.p5.mouseY;
     }
 }

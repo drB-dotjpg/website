@@ -16,6 +16,14 @@ export class TextChangingSpanElement extends LitElement {
         :host {
             display: inline-block;
         }
+
+        @media screen and (max-width: 800px) {
+            :host {
+                display: block;
+                line-height: 2.5ex;
+                height: 5ex;
+            }
+        }
         `;
 
     render() {
@@ -48,7 +56,7 @@ export class TextChangingSpanElement extends LitElement {
                 text: "⠀",
                 color: "#7BC799",
                 duration: text.length * RATE,
-                ease: "power4.in"}
+                ease: "power2.in"}
             , `+=${DELAY_DURATION * .9}`);
         }
     }
