@@ -3,6 +3,11 @@
     --bg-darker: #1D2721;
     --primary: #7bc799;
     --text: #eaf8f0;
+    --hor-padding: 10dvw;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -41,19 +46,19 @@ body {
 }
 
 h1 {
-    font-size: 5rem;
+    font-size: 4em;
     margin: .25em 0;
     font-weight: 700;
 }
 
 h2 {
-    font-size: 3.5rem;
+    font-size: 2.8em;
     margin: .2em 0;
     font-weight: 600;
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 1.5em;
     margin: .2em 0;
     font-weight: 500;
 }
@@ -89,4 +94,24 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: .5em;
+}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --hor-padding: 1rem;
+    }
+
+    body {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
 }
