@@ -79,7 +79,7 @@ a {
 .label {
     font-size: .4em;
     background: var(--bg-darker);
-    padding: 0 .25em;
+    padding: .1em .5em;
     border-radius: 10px;
     place-self: center;
     font-weight: 400;
