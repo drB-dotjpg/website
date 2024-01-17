@@ -28,11 +28,10 @@ export class PageHeaderElement extends LitElement {
         }
 
         .learn-more {
-            font-size: 1.5em;
             position: absolute;
             width: 100%;
             text-align: center;
-            bottom: 4rem;
+            bottom: 3rem;
             left: 0;
             right: 0;
             text-decoration: none;
@@ -48,11 +47,15 @@ export class PageHeaderElement extends LitElement {
 
         @media screen and (max-width: 600px) {
             :host {
-                padding: 5rem var(--hor-padding);
+                padding: 1rem var(--hor-padding);
             }
 
             .name {
                 font-size: 3em;
+            }
+
+            .bigger {
+                font-size: 1.35em;
             }
 
             .learn-more {

@@ -16,8 +16,10 @@ export class PageSectionElement extends LitElement {
             justify-content: center;
             align-items: flex-start;
             gap: 1.5em;
-            backdrop-filter: blur(.25rem) saturate(1.4) brightness(1.1);
+            backdrop-filter: saturate(1.4) brightness(1.1);
+            -webkit-backdrop-filter: saturate(1.5) brightness(1.2);
             padding-bottom: 4rem;
+            max-width: 100dvw;
         }
 
         .divider {
@@ -47,9 +49,12 @@ export class PageSectionElement extends LitElement {
             start: "top 80%",
             end: "bottom 20%",
             onEnter: () => {
+                gsap.set(this.children, {
+                    transformOrigin: "top left"
+                })
                 gsap.to(this.children, {
                     opacity: 1,
-                    x: 0,
+                    scale: 1,
                     stagger: .1,
                     delay: .25,
                     duration: .7,
@@ -57,9 +62,12 @@ export class PageSectionElement extends LitElement {
                 })
             },
             onEnterBack: () => {
+                gsap.set(this.children, {
+                    transformOrigin: "bottom left"
+                })
                 gsap.to(this.children, {
                     opacity: 1,
-                    x: 0,
+                    scale: 1,
                     stagger: {
                         each: .1,
                         from: "end"
@@ -70,18 +78,24 @@ export class PageSectionElement extends LitElement {
                 })
             },
             onLeave: () => {
+                gsap.set(this.children, {
+                    transformOrigin: "bottom left"
+                })
                 gsap.to(this.children, {
                     opacity: 0,
-                    x: 100,
+                    scale: .8,
                     stagger: .1,
                     duration: .7,
                     ease: "power4.in"
                 })
             },
             onLeaveBack: () => {
+                gsap.set(this.children, {
+                    transformOrigin: "top left"
+                })
                 gsap.to(this.children, {
                     opacity: 0,
-                    x: -100,
+                    scale: .8,
                     stagger: {
                         each: .1,
                         from: "end"
@@ -94,7 +108,7 @@ export class PageSectionElement extends LitElement {
 
         gsap.set(this.children, {
             opacity: 0,
-            x: -100
+            scale: .8
         })
     }
 }

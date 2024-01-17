@@ -28,7 +28,7 @@ export class TextChangingSpanElement extends LitElement {
 
     render() {
         return html`
-            <span>⠀</span>
+            <span>&nbsp;</span>
         `
     }
 
@@ -53,7 +53,7 @@ export class TextChangingSpanElement extends LitElement {
                 ease: "linear"
             });
             this.tl.to(span, {
-                text: "⠀",
+                text: "&nbsp;",
                 color: "#7BC799",
                 duration: text.length * RATE,
                 ease: "power2.in"}
