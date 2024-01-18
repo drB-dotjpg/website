@@ -1650,11 +1650,24 @@ void main() {
             display: inline-block;
         }
 
-        @media screen and (max-width: 800px) {
+        span:after {
+            content: "_";
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0; }
+            49.9% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        @media screen and (max-width: 60ch) {
             :host {
-                display: block;
+                display: flex;
+                align-items: center;
                 line-height: 2.5ex;
-                height: 5ex;
+                height: 5.5ex;
             }
         }
         `;il([vo()],Ps.prototype,"texts",2);il([vo()],Ps.prototype,"delay",2);Ps=il([$o("text-changing-span")],Ps);var Bf=Object.defineProperty,Gf=Object.getOwnPropertyDescriptor,Vf=(V,f,x,t)=>{for(var y=t>1?void 0:t?Gf(f,x):f,b=V.length-1,n;b>=0;b--)(n=V[b])&&(y=(t?n(f,x,y):n(y))||y);return t&&y&&Bf(f,x,y),y};let Ma=class extends yn{render(){return En`
@@ -1678,7 +1691,7 @@ void main() {
             <a class="learn-more" id="learn-more" @click=${this.learnMoreClicked}>Learn more about me</a>
         `}firstUpdated(){var x;const V=Fr.timeline({repeat:-1}),f=(x=this.shadowRoot)==null?void 0:x.getElementById("learn-more");V.to(f,{y:-7,duration:.25,ease:"power2.out"},"+=2"),V.to(f,{y:0,duration:.5,ease:"bounce.out"})}learnMoreClicked(){var f;const V=(f=document.getElementById("technology-skills"))==null?void 0:f.offsetTop;V&&window.scrollTo({top:V-100,behavior:"smooth"})}};Ma.styles=Yo`
         :host {
-            min-height: 100dvh;
+            min-height: 100vh;
             padding: 0 var(--hor-padding);
             display: flex;
             flex-direction: column;
