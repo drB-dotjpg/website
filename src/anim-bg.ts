@@ -43,7 +43,7 @@ export class AnimBgElement extends LitElement {
             let c: Renderer;
 
             p5.setup = function() {
-                p5.frameRate(24); //save on cpu
+                p5.frameRate(30); //save on cpu
                 c = p5.createCanvas(window.innerWidth, window.innerHeight);
                 c.parent(element as HTMLElement);
                 c.style("visibility", "visible")

@@ -13,12 +13,12 @@ html {
 
 body {
     font-size: 1.4rem;
-    margin: 0;
     color: var(--text);
     font-family: 'Space Grotesk', sans-serif;
     background: var(--bg);
     max-width: 100dvw;
     overflow: auto;
+    margin: 0 0 0 4.5rem;
 }
 
 .loading {
@@ -119,6 +119,10 @@ a {
 @media screen and (max-width: 600px) {
     :root {
         --hor-padding: .5rem;
+    }
+
+    body {
+        margin: 0 0 3.5rem 0;
     }
 
     h1 {
