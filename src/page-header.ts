@@ -8,7 +8,7 @@ export class PageHeaderElement extends LitElement {
 
     static styles = css`
         :host {
-            min-height: 100dvh;
+            min-height: 100vh;
             padding: 0 var(--hor-padding);
             display: flex;
             flex-direction: column;

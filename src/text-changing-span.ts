@@ -17,11 +17,24 @@ export class TextChangingSpanElement extends LitElement {
             display: inline-block;
         }
 
-        @media screen and (max-width: 800px) {
+        span:after {
+            content: "_";
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0; }
+            49.9% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        @media screen and (max-width: 60ch) {
             :host {
-                display: block;
+                display: flex;
+                align-items: center;
                 line-height: 2.5ex;
-                height: 5ex;
+                height: 5.5ex;
             }
         }
         `;
