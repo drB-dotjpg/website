@@ -16,8 +16,6 @@ export class PageSectionElement extends LitElement {
             justify-content: center;
             align-items: flex-start;
             gap: 1.5em;
-            backdrop-filter: saturate(1.4) brightness(1.1);
-            -webkit-backdrop-filter: saturate(1.5) brightness(1.2);
             padding-bottom: 4rem;
             max-width: 100dvw;
         }
@@ -40,8 +38,9 @@ export class PageSectionElement extends LitElement {
     }
 
     firstUpdated() {
-        const filter = `hue-rotate(${this.hue * 60}deg)`
-        this.style.filter = filter;
+        const filter = `saturate(1.4) brightness(1.1) hue-rotate(${this.hue * 60}deg)`
+        this.style.backdropFilter = filter;
+        this.style.setProperty('-webkit-backdrop-filter', filter);
 
         gsap.registerPlugin(ScrollTrigger)
         ScrollTrigger.create({

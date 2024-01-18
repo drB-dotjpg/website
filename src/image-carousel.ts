@@ -7,9 +7,9 @@ export class ImageCarouselElement extends LitElement {
     @property()
     imageUrls?: string;
     @property()
-    hue: number = 0;
+    ytUrls?: string;
     @state()
-    images: TemplateResult[] = [];
+    elements: TemplateResult[] = [];
     @state()
     offset: number = 0;
 
@@ -18,6 +18,7 @@ export class ImageCarouselElement extends LitElement {
     static styles = css`
         :host {
             margin: 0 auto;
+            width: 100%;
         }
         .image-container {
             display: flex;
@@ -27,6 +28,7 @@ export class ImageCarouselElement extends LitElement {
             max-width: min(100dvw, 1600px);
             overflow: hidden;
             border-radius: 10px;
+            margin: 0 auto;
         }
 
         .button-container {
@@ -59,7 +61,7 @@ export class ImageCarouselElement extends LitElement {
             transform: scale(.9);
         }
 
-        img {
+        img, .iframe-container {
             width: calc(50% - .5em);
             min-width: calc(50% - .5em);
             border-radius: 10px;
@@ -70,8 +72,15 @@ export class ImageCarouselElement extends LitElement {
             object-fit: cover;
         }
 
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
         @media screen and (max-width: 1000px) {
-            img {
+            img, .iframe-container {
                 width: 100%;
                 min-width: 100%;
                 transform: translateX( calc( var(--x) - calc(1em * var(--offset)) ) );
@@ -82,24 +91,34 @@ export class ImageCarouselElement extends LitElement {
     connectedCallback() {
         super.connectedCallback();
 
-        if (!this.imageUrls) return;
+        if (!this.imageUrls && !this.ytUrls) return;
 
-        const filter = `hue-rotate(${360 - (this.hue * 60)}deg)`
-
-        const images = this.imageUrls.split(',');
-        const imageElements: TemplateResult[] = [];
-        for (const image of images) {
-            imageElements.push(html`<img src="${image}" style="filter: ${filter}"/>`);
+        if (this.ytUrls) {
+            const videos = this.ytUrls.split(',');
+            const videoElements: TemplateResult[] = [];
+            for (const video of videos) {
+                videoElements.push(html`<div class="iframe-container">
+                    <iframe src="${video}"></iframe>
+                </div>`);
+            }
+            this.elements.push(...videoElements);
         }
 
-        this.images = imageElements;
+        if (this.imageUrls) {
+            const images = this.imageUrls.split(',');
+            const imageElements: TemplateResult[] = [];
+            for (const image of images) {
+                imageElements.push(html`<img src="${image}"/>`);
+            }
+            this.elements.push(...imageElements);
+        }
     }
 
     render() {
         return html`
             <link rel="stylesheet" href="/styles.css"/>
             <div class="image-container">
-                ${this.images}
+                ${this.elements}
             </div>
             <div class="button-container">
                 <button class="font-mono box less-padding" @click="${this.moveOffsetLeft}"><</button>
@@ -131,6 +150,12 @@ export class ImageCarouselElement extends LitElement {
         this.addEventListener("touchend", () => {
             this.touchStartX = null;
         });
+
+        if (this.ytUrls) {
+            this.addEventListener("resize", () => {
+                console.log("resize");
+            });
+        }
     }
 
     private moveOffsetLeft() {
@@ -147,7 +172,7 @@ export class ImageCarouselElement extends LitElement {
     }
 
     private moveOffsetRight() {
-        if (this.offset >= this.images.length - 1) return;
+        if (this.offset >= this.elements.length - 1) return;
 
         this.offset++;
         const container = this.shadowRoot!.querySelector('.image-container')!;
@@ -161,7 +186,7 @@ export class ImageCarouselElement extends LitElement {
 
     private getOffsetDisplay(): string {
         let str = '';
-        for (let i = 0; i < this.images.length; i++) {
+        for (let i = 0; i < this.elements.length; i++) {
             if (i === this.offset) {
                 str += '#';
             } else {
