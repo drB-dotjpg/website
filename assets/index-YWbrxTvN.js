@@ -1851,6 +1851,8 @@ void main() {
             --x: 0%;
             --offset: 0;
             transform: translateX( calc( var(--x) - calc(1em * var(--offset)) ) );
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
         }
 
         @media screen and (max-width: 1000px) {
