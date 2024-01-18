@@ -1,8 +1,9 @@
 :root {
     --bg: #2F3D34;
     --bg-darker: #1D2721;
+    --tint: rgba(20, 20, 20, .6);
     --primary: #7bc799;
-    --text: #e5f5ec;
+    --text: #ffffff;
     --hor-padding: 10dvw;
 }
 
@@ -40,7 +41,7 @@ body {
 .box {
     padding: 1em;
     border-radius: 10px;
-    background: var(--bg-darker)
+    background: var(--tint)
 }
 
 .box.less-padding {
@@ -73,6 +74,7 @@ footer {
     position: relative;
     background: var(--bg-darker);
     border-top: .1em solid var(--text);
+    font-size: 1rem;
     padding: .75rem 3rem;
     display: flex;
     flex-wrap: wrap;
@@ -86,7 +88,7 @@ a {
 
 .label {
     font-size: .4em;
-    background: var(--bg-darker);
+    background: var(--tint);
     padding: .1em .5em;
     border-radius: 10px;
     place-self: center;
