@@ -103,7 +103,7 @@ class Particle {
             this.perY = this.p5.random(0, 100);
         }
         this.perX -= this.xSpeedModify;
-        this.x = (this.p5.width * this.perX) / 100;
+        this.x = ((this.p5.width + this.disLimit) * this.perX) / 100;
         this.y = this.p5.map(this.perY, 0, 100, -this.disLimit, this.p5.height + this.disLimit);
     }
 

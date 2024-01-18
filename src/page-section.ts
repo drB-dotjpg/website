@@ -46,8 +46,8 @@ export class PageSectionElement extends LitElement {
         gsap.registerPlugin(ScrollTrigger)
         ScrollTrigger.create({
             trigger: this,
-            start: "top 80%",
-            end: "bottom 20%",
+            start: "top 100%",
+            end: "bottom 0%",
             onEnter: () => {
                 gsap.set(this.children, {
                     transformOrigin: "top left"
@@ -79,29 +79,14 @@ export class PageSectionElement extends LitElement {
             },
             onLeave: () => {
                 gsap.set(this.children, {
-                    transformOrigin: "bottom left"
-                })
-                gsap.to(this.children, {
                     opacity: 0,
-                    scale: .8,
-                    stagger: .1,
-                    duration: .7,
-                    ease: "power4.in"
+                    scale: .8
                 })
             },
             onLeaveBack: () => {
                 gsap.set(this.children, {
-                    transformOrigin: "top left"
-                })
-                gsap.to(this.children, {
                     opacity: 0,
-                    scale: .8,
-                    stagger: {
-                        each: .1,
-                        from: "end"
-                    },
-                    duration: .7,
-                    ease: "power4.in"
+                    scale: .8
                 })
             }
         })

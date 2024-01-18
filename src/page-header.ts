@@ -35,6 +35,7 @@ export class PageHeaderElement extends LitElement {
             left: 0;
             right: 0;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .learn-more:after {
@@ -83,7 +84,7 @@ export class PageHeaderElement extends LitElement {
                 <strong>Graduating with a Bachelor of Science in Management Information Systems on August 2, 2024.</strong>
             </p>
 
-            <a class="learn-more" id="learn-more" href="#technology-skills">Learn more about me</a>
+            <a class="learn-more" id="learn-more" @click=${this.learnMoreClicked}>Learn more about me</a>
         `;
     }
 
@@ -100,5 +101,12 @@ export class PageHeaderElement extends LitElement {
             duration: .5,
             ease: "bounce.out"
         });
+    }
+
+    learnMoreClicked() {
+        const scrollTo = document.getElementById("technology-skills")?.offsetTop;
+        if (scrollTo) {
+            window.scrollTo({top: scrollTo - 100, behavior: "smooth"});
+        }
     }
 }
