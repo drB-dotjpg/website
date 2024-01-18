@@ -70,6 +70,7 @@ export class ImageCarouselElement extends LitElement {
             transform: translateX( calc( var(--x) - calc(1em * var(--offset)) ) );
             aspect-ratio: 16 / 9;
             object-fit: cover;
+            background: var(--tint);
         }
 
         iframe {
@@ -108,7 +109,7 @@ export class ImageCarouselElement extends LitElement {
             const images = this.imageUrls.split(',');
             const imageElements: TemplateResult[] = [];
             for (const image of images) {
-                imageElements.push(html`<img src="${image}"/>`);
+                imageElements.push(html`<img src="${image}" loading="lazy"/>`);
             }
             this.elements.push(...imageElements);
         }

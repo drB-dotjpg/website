@@ -19,6 +19,12 @@ export class AnimBgElement extends LitElement {
         margin: 0;
         height: 100%;
         width: 100%;
+        animation: fadein 1.2s forwards;
+    }
+
+    @keyframes fadein {
+        from { opacity: 0; filter: blur(1em); }
+        to   { opacity: 1; filter: blur(0em); }
     }
     `;
 
