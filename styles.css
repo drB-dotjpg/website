@@ -73,7 +73,7 @@ footer {
     position: relative;
     background: var(--bg-darker);
     border-top: .1em solid var(--text);
-    padding: 2rem 3rem;
+    padding: .75rem 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

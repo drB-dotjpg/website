@@ -1790,17 +1790,17 @@ void main() {
                 font-size: 1.25em;
             }
         }
-        `;Ed([vo()],Pi.prototype,"list",2);Pi=Ed([$o("card-grid")],Pi);var cp=Object.defineProperty,dp=Object.getOwnPropertyDescriptor,Ns=(z,f,x,t)=>{for(var y=t>1?void 0:t?dp(f,x):f,b=z.length-1,n;b>=0;b--)(n=z[b])&&(y=(t?n(f,x,y):n(y))||y);return t&&y&&cp(f,x,y),y};let go=class extends yn{constructor(){super(...arguments),this.hue=0,this.images=[],this.offset=0}connectedCallback(){if(super.connectedCallback(),!this.imageUrls)return;const z=`hue-rotate(${360-this.hue*60}deg)`,f=this.imageUrls.split(","),x=[];for(const t of f)x.push(zn`<img src="${t}" style="filter: ${z}"/>`);this.images=x}render(){return zn`
+        `;Ed([vo()],Pi.prototype,"list",2);Pi=Ed([$o("card-grid")],Pi);var cp=Object.defineProperty,dp=Object.getOwnPropertyDescriptor,Ns=(z,f,x,t)=>{for(var y=t>1?void 0:t?dp(f,x):f,b=z.length-1,n;b>=0;b--)(n=z[b])&&(y=(t?n(f,x,y):n(y))||y);return t&&y&&cp(f,x,y),y};let go=class extends yn{constructor(){super(...arguments),this.hue=0,this.images=[],this.offset=0,this.touchStartX=null}connectedCallback(){if(super.connectedCallback(),!this.imageUrls)return;const z=`hue-rotate(${360-this.hue*60}deg)`,f=this.imageUrls.split(","),x=[];for(const t of f)x.push(zn`<img src="${t}" style="filter: ${z}"/>`);this.images=x}render(){return zn`
             <link rel="stylesheet" href="/styles.css"/>
             <div class="image-container">
                 ${this.images}
             </div>
             <div class="button-container">
-                <button class="font-mono box less-padding" @click="${this.leftButtonClicked}"><</button>
+                <button class="font-mono box less-padding" @click="${this.moveOffsetLeft}"><</button>
                 <span class="font-mono box less-padding">${this.getOffsetDisplay()}</span>
-                <button class="font-mono box less-padding" @click="${this.rightButtonClicked}">></button>
+                <button class="font-mono box less-padding" @click="${this.moveOffsetRight}">></button>
             </div>
-        `}leftButtonClicked(){if(this.offset<=0)return;this.offset--;const z=this.shadowRoot.querySelector(".image-container");Fr.to(z.children,{"--x":`-${100*this.offset}%`,"--offset":`${this.offset}`,duration:.6,ease:"power4.out"})}rightButtonClicked(){if(this.offset>=this.images.length-1)return;this.offset++;const z=this.shadowRoot.querySelector(".image-container");Fr.to(z.children,{"--x":`-${100*this.offset}%`,"--offset":`${this.offset}`,duration:.6,ease:"power4.out"})}getOffsetDisplay(){let z="";for(let f=0;f<this.images.length;f++)f===this.offset?z+="#":z+="·";return z}};go.styles=Yo`
+        `}firstUpdated(){this.addEventListener("touchstart",z=>{this.touchStartX=z.touches[0].clientX}),this.addEventListener("touchmove",z=>{if(this.touchStartX===null)return;const x=z.touches[0].clientX-this.touchStartX;x>100?(this.moveOffsetLeft(),this.touchStartX=null):x<-100&&(this.moveOffsetRight(),this.touchStartX=null)}),this.addEventListener("touchend",()=>{this.touchStartX=null})}moveOffsetLeft(){if(this.offset<=0)return;this.offset--;const z=this.shadowRoot.querySelector(".image-container");Fr.to(z.children,{"--x":`-${100*this.offset}%`,"--offset":`${this.offset}`,duration:.6,ease:"power4.out"})}moveOffsetRight(){if(this.offset>=this.images.length-1)return;this.offset++;const z=this.shadowRoot.querySelector(".image-container");Fr.to(z.children,{"--x":`-${100*this.offset}%`,"--offset":`${this.offset}`,duration:.6,ease:"power4.out"})}getOffsetDisplay(){let z="";for(let f=0;f<this.images.length;f++)f===this.offset?z+="#":z+="·";return z}};go.styles=Yo`
         :host {
             margin: 0 auto;
         }
