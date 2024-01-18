@@ -13,6 +13,8 @@ export class ImageCarouselElement extends LitElement {
     @state()
     offset: number = 0;
 
+    private touchStartX: number | null = null;
+
     static styles = css`
         :host {
             margin: 0 auto;
@@ -98,14 +100,38 @@ export class ImageCarouselElement extends LitElement {
                 ${this.images}
             </div>
             <div class="button-container">
-                <button class="font-mono box less-padding" @click="${this.leftButtonClicked}"><</button>
+                <button class="font-mono box less-padding" @click="${this.moveOffsetLeft}"><</button>
                 <span class="font-mono box less-padding">${this.getOffsetDisplay()}</span>
-                <button class="font-mono box less-padding" @click="${this.rightButtonClicked}">></button>
+                <button class="font-mono box less-padding" @click="${this.moveOffsetRight}">></button>
             </div>
         `;
     }
 
-    private leftButtonClicked() {
+    firstUpdated() {
+        this.addEventListener("touchstart", (e) => {
+            this.touchStartX = e.touches[0].clientX;
+        });
+
+        this.addEventListener("touchmove", (e) => {
+            if (this.touchStartX === null) return;
+
+            const touchX = e.touches[0].clientX;
+            const diff = touchX - this.touchStartX;
+            if (diff > 100) {
+                this.moveOffsetLeft();
+                this.touchStartX = null;
+            } else if (diff < -100) {
+                this.moveOffsetRight();
+                this.touchStartX = null;
+            }
+        });
+
+        this.addEventListener("touchend", () => {
+            this.touchStartX = null;
+        });
+    }
+
+    private moveOffsetLeft() {
         if (this.offset <= 0) return;
 
         this.offset--;
@@ -118,7 +144,7 @@ export class ImageCarouselElement extends LitElement {
         })
     }
 
-    private rightButtonClicked() {
+    private moveOffsetRight() {
         if (this.offset >= this.images.length - 1) return;
 
         this.offset++;
