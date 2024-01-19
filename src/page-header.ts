@@ -8,13 +8,14 @@ export class PageHeaderElement extends LitElement {
 
     static styles = css`
         :host {
-            min-height: 100vh;
-            padding: 0 var(--hor-padding);
+            min-height: calc(100vh - 12em);
+            padding: 6em var(--hor-padding);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
             gap: 1.5em;
+            position: relative;
         }
 
         .name {
@@ -48,7 +49,7 @@ export class PageHeaderElement extends LitElement {
 
         @media screen and (max-width: 600px) {
             :host {
-                padding: 1rem var(--hor-padding);
+                padding: 3rem var(--hor-padding);
             }
 
             .name {

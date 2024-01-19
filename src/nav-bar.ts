@@ -26,8 +26,7 @@ export class NavBarElement extends LitElement {
             font-family: "Space Mono", monospace;
         }
 
-        .rotated-text {
-            --rotate: -90deg;
+        .rotation-container {
             transform: rotate(-90deg);
             font-size: .5em;
             white-space: nowrap;
@@ -49,22 +48,81 @@ export class NavBarElement extends LitElement {
             margin-right: 1ch;
         }
 
+        .icon-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--tint);
+            gap: 1rem;
+        }
+
+        .icon-container img {
+            width: 60%;
+            height: auto;
+            transition: transform .15s;
+            cursor: pointer;
+        }
+
+        .icon-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .icon-container img:active {
+            transform: scale(.9);
+        }
+
+        @media screen and (max-width: 1000px) {
+            :host {
+                width: 3rem;
+                font-size: 3rem;
+            }
+        }
+
         @media screen and (max-width: 600px) {
             :host {
-                width: 100vw;
+                width: 100dvw;
                 height: 3rem;
-                bottom: 0;
-                padding: .25rem 0;
+                top: 0;
+                padding: 0;
                 flex-direction: row;
-                justify-content: flex-start;
+                justify-content: space-between;
                 overflow: hidden;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                background: rgb(30,30,30);
+                backdrop-filter: blur(.6rem) brightness(.7);
+                -webkit-backdrop-filter: blur(.6rem) brightness(.7);
             }
 
-            .rotated-text {
+            .rotation-container {
+                transform: rotate(0);
+                font-size: .4em;
+                white-space: wrap;
+                line-height: 1;
+                padding-left: 1rem;
+                transform-origin: left;
+                width: calc(100dvw - 7.5rem);
+                height: 1.1em;
+                margin-right: .5rem;
+                overflow: hidden;
+            }
+
+            .rotated-text:before, .rotated-text:after {
                 display: none;
+            }
+
+            .icon-container {
+                width: 7rem;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-evenly;
+                gap: 0
+            }
+
+            .icon-container img {
+                height: 2.2rem;
+                width: auto;
             }
         }
         
@@ -85,18 +143,18 @@ export class NavBarElement extends LitElement {
                 end: "bottom 50%",
                 onEnter: () => {
                     this.tl.to(elemText, {
-                        y: -80,
+                        x: 80,
                         opacity: 0,
                         duration: .25,
                         ease: "power4.in"
                     })
                     .set(elemText, {
-                        y: 80,
+                        x: -80,
                         opacity: 0,
                         text: name
                     })
                     .to(elemText, {
-                        y: 0,
+                        x: 0,
                         opacity: 1,
                         duration: .25,
                         ease: "power4.out"
@@ -104,18 +162,18 @@ export class NavBarElement extends LitElement {
                 },
                 onEnterBack: () => {
                     this.tl.to(elemText, {
-                        y: 80,
+                        x: -80,
                         opacity: 0,
                         duration: .25,
                         ease: "power4.in"
                     })
                     .set(elemText, {
-                        y: -80,
+                        x: 80,
                         opacity: 0,
                         text: name
                     })
                     .to(elemText, {
-                        y: 0,
+                        x: 0,
                         opacity: 1,
                         duration: .25,
                         ease: "power4.out"
@@ -128,7 +186,17 @@ export class NavBarElement extends LitElement {
     render() {
         return html`
             <link rel="stylesheet" href="/styles.css/">
-            <span class="rotated-text" id="elem-text"></span>
+            <span class="rotation-container">
+                <div class="rotated-text" id="elem-text"></div>
+            </span>
+            <div class="icon-container">
+                <img src="/assets/icons/github.svg" alt="Github" @click="${this.openGithub}">
+                <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
+            </div>
         `;
+    }
+
+    private openGithub() {
+        window.open("https://github.com/drB-dotjpg");
     }
 }
