@@ -1697,13 +1697,14 @@ void main() {
             <a class="learn-more" id="learn-more" @click=${this.learnMoreClicked}>Learn more about me</a>
         `}firstUpdated(){var x;const V=gr.timeline({repeat:-1}),h=(x=this.shadowRoot)==null?void 0:x.getElementById("learn-more");V.to(h,{y:-7,duration:.25,ease:"power2.out"},"+=2"),V.to(h,{y:0,duration:.5,ease:"bounce.out"})}learnMoreClicked(){var h;const V=(h=document.getElementById("technology-skills"))==null?void 0:h.offsetTop;V&&window.scrollTo({top:V-100,behavior:"smooth"})}};Ma.styles=vo`
         :host {
-            min-height: 100vh;
-            padding: 0 var(--hor-padding);
+            min-height: calc(100vh - 12em);
+            padding: 6em var(--hor-padding);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
             gap: 1.5em;
+            position: relative;
         }
 
         .name {
@@ -1737,7 +1738,7 @@ void main() {
 
         @media screen and (max-width: 600px) {
             :host {
-                padding: 1rem var(--hor-padding);
+                padding: 3rem var(--hor-padding);
             }
 
             .name {
@@ -1891,10 +1892,16 @@ void main() {
                 transform: translateX( calc( var(--x) - calc(1em * var(--offset)) ) );
             }
         }
-    `;Ns([_o()],go.prototype,"imageUrls",2);Ns([_o()],go.prototype,"ytUrls",2);Ns([Qu()],go.prototype,"elements",2);Ns([Qu()],go.prototype,"offset",2);go=Ns([bo("image-carousel")],go);var pp=Object.defineProperty,mp=Object.getOwnPropertyDescriptor,yp=(V,h,x,t)=>{for(var y=t>1?void 0:t?mp(h,x):h,b=V.length-1,n;b>=0;b--)(n=V[b])&&(y=(t?n(h,x,y):n(y))||y);return t&&y&&pp(h,x,y),y};let Ba=class extends cn{constructor(){super(...arguments),this.tl=gr.timeline()}firstUpdated(){var x;gr.registerPlugin(wt),gr.registerPlugin(Zo);const V=document.body.querySelectorAll("page-header, page-section"),h=(x=this.shadowRoot)==null?void 0:x.getElementById("elem-text");for(const t of V){const y=t.getAttribute("name");wt.create({trigger:t,start:"top 50%",end:"bottom 50%",onEnter:()=>{this.tl.to(h,{y:-80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{y:80,opacity:0,text:y}).to(h,{y:0,opacity:1,duration:.25,ease:"power4.out"})},onEnterBack:()=>{this.tl.to(h,{y:80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{y:-80,opacity:0,text:y}).to(h,{y:0,opacity:1,duration:.25,ease:"power4.out"})}})}}render(){return gn`
+    `;Ns([_o()],go.prototype,"imageUrls",2);Ns([_o()],go.prototype,"ytUrls",2);Ns([Qu()],go.prototype,"elements",2);Ns([Qu()],go.prototype,"offset",2);go=Ns([bo("image-carousel")],go);var pp=Object.defineProperty,mp=Object.getOwnPropertyDescriptor,yp=(V,h,x,t)=>{for(var y=t>1?void 0:t?mp(h,x):h,b=V.length-1,n;b>=0;b--)(n=V[b])&&(y=(t?n(h,x,y):n(y))||y);return t&&y&&pp(h,x,y),y};let Ba=class extends cn{constructor(){super(...arguments),this.tl=gr.timeline()}firstUpdated(){var x;gr.registerPlugin(wt),gr.registerPlugin(Zo);const V=document.body.querySelectorAll("page-header, page-section"),h=(x=this.shadowRoot)==null?void 0:x.getElementById("elem-text");for(const t of V){const y=t.getAttribute("name");wt.create({trigger:t,start:"top 50%",end:"bottom 50%",onEnter:()=>{this.tl.to(h,{x:80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{x:-80,opacity:0,text:y}).to(h,{x:0,opacity:1,duration:.25,ease:"power4.out"})},onEnterBack:()=>{this.tl.to(h,{x:-80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{x:80,opacity:0,text:y}).to(h,{x:0,opacity:1,duration:.25,ease:"power4.out"})}})}}render(){return gn`
             <link rel="stylesheet" href="/styles.css/">
-            <span class="rotated-text" id="elem-text"></span>
-        `}};Ba.styles=vo`
+            <span class="rotation-container">
+                <div class="rotated-text" id="elem-text"></div>
+            </span>
+            <div class="icon-container">
+                <img src="/assets/icons/github.svg" alt="Github" @click="${this.openGithub}">
+                <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
+            </div>
+        `}openGithub(){window.open("https://github.com/drB-dotjpg")}};Ba.styles=vo`
         :host {
             position: fixed;
             bottom: 0;
@@ -1913,8 +1920,7 @@ void main() {
             font-family: "Space Mono", monospace;
         }
 
-        .rotated-text {
-            --rotate: -90deg;
+        .rotation-container {
             transform: rotate(-90deg);
             font-size: .5em;
             white-space: nowrap;
@@ -1936,22 +1942,81 @@ void main() {
             margin-right: 1ch;
         }
 
+        .icon-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--tint);
+            gap: 1rem;
+        }
+
+        .icon-container img {
+            width: 60%;
+            height: auto;
+            transition: transform .15s;
+            cursor: pointer;
+        }
+
+        .icon-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .icon-container img:active {
+            transform: scale(.9);
+        }
+
+        @media screen and (max-width: 1000px) {
+            :host {
+                width: 3rem;
+                font-size: 3rem;
+            }
+        }
+
         @media screen and (max-width: 600px) {
             :host {
-                width: 100vw;
+                width: 100dvw;
                 height: 3rem;
-                bottom: 0;
-                padding: .25rem 0;
+                top: 0;
+                padding: 0;
                 flex-direction: row;
-                justify-content: flex-start;
+                justify-content: space-between;
                 overflow: hidden;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                background: rgb(30,30,30);
+                backdrop-filter: blur(.6rem) brightness(.7);
+                -webkit-backdrop-filter: blur(.6rem) brightness(.7);
             }
 
-            .rotated-text {
+            .rotation-container {
+                transform: rotate(0);
+                font-size: .4em;
+                white-space: wrap;
+                line-height: 1;
+                padding-left: 1rem;
+                transform-origin: left;
+                width: calc(100dvw - 7.5rem);
+                height: 1.1em;
+                margin-right: .5rem;
+                overflow: hidden;
+            }
+
+            .rotated-text:before, .rotated-text:after {
                 display: none;
+            }
+
+            .icon-container {
+                width: 7rem;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-evenly;
+                gap: 0
+            }
+
+            .icon-container img {
+                height: 2.2rem;
+                width: auto;
             }
         }
         
