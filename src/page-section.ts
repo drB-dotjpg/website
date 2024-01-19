@@ -22,7 +22,7 @@ export class PageSectionElement extends LitElement {
 
         .divider {
             width: 100%;
-            height: .3rem;
+            height: .2rem;
             position: absolute;
             top: 0;
             left: 0;

@@ -13,14 +13,13 @@ export class NavBarElement extends LitElement {
             bottom: 0;
             left: 0;
             font-size: 4rem;
-            width: 1em;
+            width: 4.5rem;
             height: 100dvh;
             z-index: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0 .25rem;
             background: var(--tint);
             backdrop-filter: saturate(0);
             -webkit-backdrop-filter: saturate(0);
@@ -82,8 +81,8 @@ export class NavBarElement extends LitElement {
             const name = section.getAttribute("name") as string;
             ScrollTrigger.create({
                 trigger: section,
-                start: "top 65%",
-                end: "bottom 35%",
+                start: "top 50%",
+                end: "bottom 50%",
                 onEnter: () => {
                     this.tl.to(elemText, {
                         y: -80,
