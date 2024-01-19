@@ -1785,7 +1785,7 @@ void main() {
 
         .divider {
             width: 100%;
-            height: .3rem;
+            height: .2rem;
             position: absolute;
             top: 0;
             left: 0;
@@ -1891,7 +1891,7 @@ void main() {
                 transform: translateX( calc( var(--x) - calc(1em * var(--offset)) ) );
             }
         }
-    `;Ns([_o()],go.prototype,"imageUrls",2);Ns([_o()],go.prototype,"ytUrls",2);Ns([Qu()],go.prototype,"elements",2);Ns([Qu()],go.prototype,"offset",2);go=Ns([bo("image-carousel")],go);var pp=Object.defineProperty,mp=Object.getOwnPropertyDescriptor,yp=(V,h,x,t)=>{for(var y=t>1?void 0:t?mp(h,x):h,b=V.length-1,n;b>=0;b--)(n=V[b])&&(y=(t?n(h,x,y):n(y))||y);return t&&y&&pp(h,x,y),y};let Ba=class extends cn{constructor(){super(...arguments),this.tl=gr.timeline()}firstUpdated(){var x;gr.registerPlugin(wt),gr.registerPlugin(Zo);const V=document.body.querySelectorAll("page-header, page-section"),h=(x=this.shadowRoot)==null?void 0:x.getElementById("elem-text");for(const t of V){const y=t.getAttribute("name");wt.create({trigger:t,start:"top 65%",end:"bottom 35%",onEnter:()=>{this.tl.to(h,{y:-80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{y:80,opacity:0,text:y}).to(h,{y:0,opacity:1,duration:.25,ease:"power4.out"})},onEnterBack:()=>{this.tl.to(h,{y:80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{y:-80,opacity:0,text:y}).to(h,{y:0,opacity:1,duration:.25,ease:"power4.out"})}})}}render(){return gn`
+    `;Ns([_o()],go.prototype,"imageUrls",2);Ns([_o()],go.prototype,"ytUrls",2);Ns([Qu()],go.prototype,"elements",2);Ns([Qu()],go.prototype,"offset",2);go=Ns([bo("image-carousel")],go);var pp=Object.defineProperty,mp=Object.getOwnPropertyDescriptor,yp=(V,h,x,t)=>{for(var y=t>1?void 0:t?mp(h,x):h,b=V.length-1,n;b>=0;b--)(n=V[b])&&(y=(t?n(h,x,y):n(y))||y);return t&&y&&pp(h,x,y),y};let Ba=class extends cn{constructor(){super(...arguments),this.tl=gr.timeline()}firstUpdated(){var x;gr.registerPlugin(wt),gr.registerPlugin(Zo);const V=document.body.querySelectorAll("page-header, page-section"),h=(x=this.shadowRoot)==null?void 0:x.getElementById("elem-text");for(const t of V){const y=t.getAttribute("name");wt.create({trigger:t,start:"top 50%",end:"bottom 50%",onEnter:()=>{this.tl.to(h,{y:-80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{y:80,opacity:0,text:y}).to(h,{y:0,opacity:1,duration:.25,ease:"power4.out"})},onEnterBack:()=>{this.tl.to(h,{y:80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{y:-80,opacity:0,text:y}).to(h,{y:0,opacity:1,duration:.25,ease:"power4.out"})}})}}render(){return gn`
             <link rel="stylesheet" href="/styles.css/">
             <span class="rotated-text" id="elem-text"></span>
         `}};Ba.styles=vo`
@@ -1900,14 +1900,13 @@ void main() {
             bottom: 0;
             left: 0;
             font-size: 4rem;
-            width: 1em;
+            width: 4.5rem;
             height: 100dvh;
             z-index: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0 .25rem;
             background: var(--tint);
             backdrop-filter: saturate(0);
             -webkit-backdrop-filter: saturate(0);
