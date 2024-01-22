@@ -1894,9 +1894,9 @@ void main() {
         }
     `;Bs([xo()],bo.prototype,"imageUrls",2);Bs([xo()],bo.prototype,"ytUrls",2);Bs([Wa()],bo.prototype,"elements",2);Bs([Wa()],bo.prototype,"offset",2);bo=Bs([Yn("image-carousel")],bo);var yp=Object.defineProperty,gp=Object.getOwnPropertyDescriptor,vp=(V,h,x,t)=>{for(var m=t>1?void 0:t?gp(h,x):h,b=V.length-1,n;b>=0;b--)(n=V[b])&&(m=(t?n(h,x,m):n(m))||m);return t&&m&&yp(h,x,m),m};let Ga=class extends rn{constructor(){super(...arguments),this.tl=gr.timeline()}firstUpdated(){var x;gr.registerPlugin(wt),gr.registerPlugin(Qo);const V=document.body.querySelectorAll("page-header, page-section"),h=(x=this.shadowRoot)==null?void 0:x.getElementById("elem-text");for(const t of V){const m=t.getAttribute("name");wt.create({trigger:t,start:"top 50%",end:"bottom 50%",onEnter:()=>{this.tl.to(h,{x:80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{x:-80,opacity:0,text:m}).to(h,{x:0,opacity:1,duration:.25,ease:"power4.out"})},onEnterBack:()=>{this.tl.to(h,{x:-80,opacity:0,duration:.25,ease:"power4.in"}).set(h,{x:80,opacity:0,text:m}).to(h,{x:0,opacity:1,duration:.25,ease:"power4.out"})}})}}render(){return dn`
             <link rel="stylesheet" href="/styles.css/">
-            <span class="rotation-container">
+            <div class="rotation-container">
                 <div class="rotated-text" id="elem-text"></div>
-            </span>
+            </div>
             <div class="icon-container">
                 <img src="/assets/icons/github.svg" alt="Github" @click="${this.openGithub}">
                 <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
@@ -1924,6 +1924,12 @@ void main() {
             transform: rotate(-90deg);
             font-size: .5em;
             white-space: nowrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: auto;
+            overflow: hidden;
         }
 
         .rotated-text:after, .rotated-text:before {
@@ -1943,8 +1949,6 @@ void main() {
         }
 
         .icon-container {
-            position: absolute;
-            bottom: 0;
             width: 100%;
             padding: 1.5rem 0;
             display: flex;
@@ -1976,7 +1980,7 @@ void main() {
             }
         }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 600px), screen and (max-height: 600px){
             :host {
                 width: 100dvw;
                 height: 3rem;
@@ -1990,6 +1994,7 @@ void main() {
             }
 
             .rotation-container {
+                justify-content: flex-start;
                 transform: rotate(0);
                 font-size: .4em;
                 white-space: wrap;

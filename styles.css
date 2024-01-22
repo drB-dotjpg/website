@@ -117,7 +117,7 @@ a {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), screen and (max-height: 600px){
     :root {
         --hor-padding: .5rem;
     }
