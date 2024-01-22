@@ -103,7 +103,7 @@ export class NavBarElement extends LitElement {
                 padding-left: 1rem;
                 transform-origin: left;
                 width: calc(100dvw - 7.5rem);
-                height: 1.1em;
+                min-height: 1.1em;
                 margin-right: .5rem;
                 overflow: hidden;
             }
