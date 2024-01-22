@@ -30,6 +30,12 @@ export class NavBarElement extends LitElement {
             transform: rotate(-90deg);
             font-size: .5em;
             white-space: nowrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: auto;
+            overflow: hidden;
         }
 
         .rotated-text:after, .rotated-text:before {
@@ -49,8 +55,6 @@ export class NavBarElement extends LitElement {
         }
 
         .icon-container {
-            position: absolute;
-            bottom: 0;
             width: 100%;
             padding: 1.5rem 0;
             display: flex;
@@ -82,7 +86,7 @@ export class NavBarElement extends LitElement {
             }
         }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 600px), screen and (max-height: 600px){
             :host {
                 width: 100dvw;
                 height: 3rem;
@@ -96,6 +100,7 @@ export class NavBarElement extends LitElement {
             }
 
             .rotation-container {
+                justify-content: flex-start;
                 transform: rotate(0);
                 font-size: .4em;
                 white-space: wrap;
@@ -186,9 +191,9 @@ export class NavBarElement extends LitElement {
     render() {
         return html`
             <link rel="stylesheet" href="/styles.css/">
-            <span class="rotation-container">
+            <div class="rotation-container">
                 <div class="rotated-text" id="elem-text"></div>
-            </span>
+            </div>
             <div class="icon-container">
                 <img src="/assets/icons/github.svg" alt="Github" @click="${this.openGithub}">
                 <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
