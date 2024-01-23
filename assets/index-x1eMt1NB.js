@@ -2031,7 +2031,7 @@ void main() {
                 <slot></slot>
             </div>
             <button id="toggle" @click=${this.toggle} class="font-mono box less-padding">${this.expanded?"Collapse":"Expand"}</button>
-        `}toggle(){this.expanded=!this.expanded}handleResize(V,h){V.scrollHeight<_o.maxHeight?(V.classList.remove("collapsed"),h.style.display="none"):(V.classList.add("collapsed"),h.style.display="block")}};_o.maxHeight=300;_o.styles=Xn`
+        `}toggle(){this.expanded=!this.expanded}handleResize(V,h){V.scrollHeight<_o.maxHeight?(V.classList.remove("collapsed"),h.style.display="none"):(V.classList.add("collapsed"),h.style.display="block")}};_o.maxHeight=400;_o.styles=Xn`
         :host {
             display: block;
             overflow: hidden;
@@ -2055,6 +2055,7 @@ void main() {
             margin-top: .5em;
             transition-duration: .15s;
             cursor: pointer;
+            width: 100%;
         }
 
         #toggle:hover {
