@@ -6,7 +6,7 @@ export class ExpandingContentElement extends LitElement {
     @state()
     private expanded = false;
 
-    static maxHeight = 300;
+    static maxHeight = 400;
     static styles = css`
         :host {
             display: block;
@@ -31,6 +31,7 @@ export class ExpandingContentElement extends LitElement {
             margin-top: .5em;
             transition-duration: .15s;
             cursor: pointer;
+            width: 100%;
         }
 
         #toggle:hover {
