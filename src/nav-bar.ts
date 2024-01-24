@@ -196,12 +196,16 @@ export class NavBarElement extends LitElement {
             </div>
             <div class="icon-container">
                 <img src="/assets/icons/github.svg" alt="Github" @click="${this.openGithub}">
-                <img src="/assets/icons/linkedin.svg" alt="LinkedIn">
+                <img src="/assets/icons/linkedin.svg" alt="LinkedIn" @click="${this.openLinkedin}">
             </div>
         `;
     }
 
     private openGithub() {
         window.open("https://github.com/drB-dotjpg");
+    }
+
+    private openLinkedin() {
+        window.open("https://www.linkedin.com/in/derek-bond-759b301b5/");
     }
 }
