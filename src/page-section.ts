@@ -18,21 +18,12 @@ export class PageSectionElement extends LitElement {
             gap: 1.5em;
             padding-bottom: 4rem;
             max-width: 100dvw;
-        }
-
-        .divider {
-            width: 100%;
-            height: .2rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: var(--text);
+            border-top: .2rem solid var(--text);
         }
         `;
 
     render() {
         return html`
-        <div class="divider"></div>
         <slot></slot>
         `;
     }
