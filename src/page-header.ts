@@ -80,7 +80,7 @@ export class PageHeaderElement extends LitElement {
                 </div>
 
             <p class="font-space box">
-                Passionate and detail-oriented student at Iowa State University. Seeking post-graduation employment in the application development or the information technology field. Experience problem solving in team based environments both in work and in my hobbies.
+                Passionate and detail-oriented student at Iowa State University. Seeking post-graduation employment in the application development or the information technology field. Experienced in problem solving within team based environments both in work and in my hobbies.
                 <br>
                 <strong>Graduating with a Bachelor of Science in Management Information Systems on August 2, 2024.</strong>
             </p>
