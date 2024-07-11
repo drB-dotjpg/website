@@ -71,7 +71,7 @@ export class PageHeaderElement extends LitElement {
             <link rel="stylesheet" href="/styles.css" />
             <div class="name font-syne">Derek Bond</div>
                 <div class="bigger font-space">
-                    <text-changing-span class="font-mono box less-padding" .texts=${["Management Info Systems Student", "Freelance Software Developer"]}></text-changing-span>
+                    <text-changing-span class="font-mono box less-padding" .texts=${["Management Info Systems Graduate", "Freelance Software Developer"]}></text-changing-span>
                     <strong>&nbsp;by day</strong>
                 </div>
                 <div class="bigger font-space">
@@ -80,10 +80,8 @@ export class PageHeaderElement extends LitElement {
                 </div>
 
             <p class="font-space box">
-                Passionate and detail-oriented student at Iowa State University. Seeking post-graduation employment as a software developer. Experienced in problem solving within team based environments both in work and in my hobbies.
+                Seeking post-graduation as a software developer. Experienced in problem solving within team based environments both in work and in my hobbies.
                 <br>
-                <strong>Graduating with a Bachelor of Science in Management Information Systems on August 2, 2024.</strong>
-                <br><br>
                 This website was made by me to showcase my skills and passion.
             </p>
 
