@@ -80,7 +80,7 @@ export class PageHeaderElement extends LitElement {
                 </div>
 
             <p class="font-space box">
-                Seeking post-graduation as a software developer. Experienced in problem solving within team based environments both in work and in my hobbies.
+                Seeking full-time employment as a software developer. Experienced in problem solving within team based environments both in work and in my hobbies.
                 <br>
                 This website was made by me to showcase my skills and passion.
             </p>
