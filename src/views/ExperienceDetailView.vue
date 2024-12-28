@@ -44,7 +44,7 @@ const projects = computed(() => {
         </div>
 
         <div v-if="experience.img && experience.img.length > 0" class="flex flex-wrap gap-4">
-            <img v-for="img in experience.img" :src="`/img/experience/${route.params.slug}/${img}`" :alt="experience.name" class="rounded shadow max-w-[28rem] h-auto max-h-96 w-fit object-cover" />
+            <img v-for="img in experience.img" :src="`/img/experience/${route.params.slug}/${img}`" :alt="experience.name" class="rounded shadow h-auto max-h-96 w-[24rem] max-w-full object-cover" />
         </div>
     </main>
 </template>
