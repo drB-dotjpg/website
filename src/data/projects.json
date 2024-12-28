@@ -6,7 +6,8 @@
         "preview": "E-commerce website to assist esport event organizers sell custom merchandise",
         "tags": [
             "May 2024 - Present",
-            "Web Development"
+            "Web Development",
+            "UX Design"
         ],
         "body": "<a href='https://shop.level1.tv/'>Check out the Level1 Shop</a><br><br>Web application providing e-commerce services to esports tournament organizers. Using Vue, Inertiajs, and Laravel. I was responsible for implementing the frontend of the website. This involved creating the user interface and integrating it with the backend. I also worked on the backend to implement new features and fix bugs. I continue to maintain the website and add new features as needed.",
         "img": [
@@ -152,7 +153,7 @@
         "with": "ipl",
         "preview": "Web tool to help the Splatoon Esports Scene",
         "tags": [
-            "Web Development"
+            "Web Development", "UX Design"
         ],
         "body": "<a href='https://maps.iplabs.ink/'>maps.iplabs.ink</a> is a web tool I've created to help people in the competitive Splatoon scene. The game has four modes and dozens of stages you can play on. Each stage can be played on any mode, so many different map mode combos need to be handled in our tournaments. The goal of this site is to automate the creation of map lists for tournament play. The challenge was to create map lists that contained an equal amount of maps and modes that seemed varied and kept the site as easy to use as possible.",
         "img": [
