@@ -25,16 +25,28 @@ watch(router.currentRoute, () => {
                 opportunities.</p>
             <nav class="flex gap-2 flex-wrap xl:justify-end">
                 <RouterLink to="/"
-                    class="no-underline py-1.5 px-3 bg-black/50 rounded text-lg hover:shadow-lg hover:bg-white hover:text-black transition-colors backdrop-blur-sm">
+                    class="no-underline py-1.5 px-3 bg-black/50 rounded text-lg hover:shadow-lg hover:bg-white hover:text-black transition-colors backdrop-blur-sm"
+                    :class="{
+                        'bg-emerald-600/50': router.currentRoute.value.path === '/'
+                    }">
                     About</RouterLink>
                 <RouterLink to="/skills"
-                    class="no-underline py-1.5 px-3 bg-black/50 rounded text-lg hover:shadow-lg hover:bg-white hover:text-black transition-colors backdrop-blur-sm">
+                    class="no-underline py-1.5 px-3 bg-black/50 rounded text-lg hover:shadow-lg hover:bg-white hover:text-black transition-colors backdrop-blur-sm"
+                    :class="{
+                        'bg-emerald-600/50': router.currentRoute.value.path.includes('/skills')
+                    }">
                     Skills</RouterLink>
                 <RouterLink to="/experience"
-                    class="no-underline py-1.5 px-3 bg-black/50 rounded text-lg hover:shadow-lg hover:bg-white hover:text-black transition-colors backdrop-blur-sm">
+                    class="no-underline py-1.5 px-3 bg-black/50 rounded text-lg hover:shadow-lg hover:bg-white hover:text-black transition-colors backdrop-blur-sm"
+                    :class="{
+                        'bg-emerald-600/50': router.currentRoute.value.path.includes('/experience')
+                    }">
                     Experience</RouterLink>
                 <RouterLink to="/projects"
-                    class="no-underline py-1.5 px-3 bg-black/50 rounded text-lg hover:shadow-lg hover:bg-white hover:text-black transition-colors backdrop-blur-sm">
+                    class="no-underline py-1.5 px-3 bg-black/50 rounded text-lg hover:shadow-lg hover:bg-white hover:text-black transition-colors backdrop-blur-sm"
+                    :class="{
+                        'bg-emerald-600/50': router.currentRoute.value.path.includes('/projects')
+                    }">
                     Projects</RouterLink>
             </nav>
             <nav class="flex gap-2 flex-wrap xl:justify-end">

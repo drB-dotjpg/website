@@ -57,3 +57,16 @@ iframe {
 .v-leave-to {
     transform: translateY(-2rem);
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .v-enter-active,
+    .v-leave-active {
+        transition: opacity 100ms ease;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        transform: none;
+    }
+}
+
