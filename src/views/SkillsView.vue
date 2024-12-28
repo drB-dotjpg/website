@@ -21,7 +21,7 @@ function skillToText(skill: number) {
 
             <div class="flex gap-3 flex-wrap">
 
-                <component v-for="skill in category.skills" :is="skill.url ? 'a' : 'div'" :href="skill.url" target="_blank" class="bg-black/40 rounded p-3 flex flex-col gap-2 w-64 backdrop-blur-sm transition-colors no-underline group" :class="{
+                <component v-for="skill in category.skills" :is="skill.url ? 'a' : 'div'" :href="skill.url" target="_blank" class="bg-black/40 rounded p-3 flex flex-col gap-2 w-full lg:w-56 backdrop-blur-sm transition-colors no-underline group" :class="{
                     'hover:bg-white hover:text-black': skill.url
                 }">
                     

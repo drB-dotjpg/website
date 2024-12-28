@@ -29,7 +29,7 @@ const withExp = expData[project.with as keyof typeof expData];
         <p v-html="project.body"></p>
 
         <div v-if="project.img && project.img.length > 0" class="flex flex-wrap gap-4">
-            <img v-for="img in project.img" :src="`/img/projects/${route.params.slug}/${img}`" :alt="project.name" class="rounded shadow max-w-[28rem] h-auto max-h-96 w-fit object-cover" />
+            <img v-for="img in project.img" :src="`/img/projects/${route.params.slug}/${img}`" :alt="project.name" class="rounded shadow h-auto max-h-96 w-[24rem] max-w-full object-cover" />
         </div>
     </main>
 </template>
