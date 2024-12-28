@@ -7,17 +7,21 @@ const router = useRouter();
 const content = ref<HTMLElement | null>(null);
 
 watch(router.currentRoute, () => {
-    if (!content.value) return;
-    content.value.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0 });
+    if (content.value) {
+        content.value.scrollTo({ top: 0 });
+    }
 });
 </script>
 
 <template>
     <div
         class="text-[#F0FAF6] p-3 md:p-6 xl:pr-0 flex gap-6 xl:gap-16 flex-col xl:w-dvw xl:h-dvh xl:flex-row xl:items-center">
-        <header class="xl:w-1/3 flex flex-col xl:items-end gap-3 xl:text-right -m-3 p-3 md:-m-6 md:p-6 bg-black/30 backdrop-blur-sm xl:m-0 xl:p-0 xl:bg-transparent xl:backdrop-blur-none">
+        <header
+            class="xl:w-1/3 flex flex-col xl:items-end gap-3 xl:text-right -m-3 p-3 md:-m-6 md:p-6 bg-black/30 backdrop-blur-sm xl:m-0 xl:p-0 xl:bg-transparent xl:backdrop-blur-none">
             <h1 class="font-bold text-4xl xl:text-6xl">Derek Bond</h1>
-            <p class="text-pretty text-sm xl:text-base">Freelance Software Engineer & Management Information Systems Graduate seeking full time programming
+            <p class="text-pretty text-sm xl:text-base">Freelance Software Engineer & Management Information Systems
+                Graduate seeking full time programming
                 opportunities.</p>
             <nav class="flex gap-2 flex-wrap xl:justify-end">
                 <RouterLink to="/"
