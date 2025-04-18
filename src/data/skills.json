@@ -117,10 +117,6 @@
                 "level": 2
             },
             {
-                "name": "PHP",
-                "level": 1
-            },
-            {
                 "name": "GraphQL",
                 "level": 1,
                 "url": "https://graphql.org/"
