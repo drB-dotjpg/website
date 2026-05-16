@@ -20,6 +20,11 @@
                 "level": 3
             },
             {
+                "name": "React",
+                "level": 3,
+                "url": "https://react.dev/"
+            },
+            {
                 "name": "Vue",
                 "level": 3,
                 "url": "https://vuejs.org/"
@@ -33,16 +38,6 @@
                 "name": "GSAP",
                 "level": 3,
                 "url": "https://gsap.com/"
-            },
-            {
-                "name": "React",
-                "level": 2,
-                "url": "https://react.dev/"
-            },
-            {
-                "name": "JSX",
-                "level": 2,
-                "url": "https://react.dev/learn/writing-markup-with-jsx"
             },
             {
                 "name": "Vite",
@@ -168,16 +163,16 @@
                 "level": 3
             },
             {
+                "name": "MacOS",
+                "level": 2
+            },
+            {
                 "name": "Linux",
                 "level": 2
             },
             {
                 "name": "Android",
                 "level": 2
-            },
-            {
-                "name": "MacOS",
-                "level": 1
             }
         ]
     }
