@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Geist+Mono:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+html {
+    --theme-light: #f4e9d7;
+    --theme-mid: #584f41;
+    --theme-dark: #12100d;
+}
+
+body {
+    margin: 0;
+    font-optical-sizing: auto;
+    box-sizing: border-box;
+    text-wrap: pretty;
+}
+
+@theme {
+    --color-*: initial;
+    --color-light: var(--theme-light);
+    --color-mid: var(--theme-mid);
+    --color-dark: var(--theme-dark);
+
+    --spacing: 0.25rem;
+    --spacing-full: 2rem;
+    --spacing-half: 1rem;
+
+    --font-*: initial;
+    --font-sans: "Archivo", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+
+    --width-full: 100%;
+    --height-full: 100%;
+
+    --width-gap-full: var(--spacing-full);
+    --width-gap-half: var(--spacing-half);
+    --height-gap-full: var(--spacing-full);
+    --height-gap-half: var(--spacing-half);
+
+    --radius-*: initial;
+    --radius-on: var(--spacing-full);
+}
